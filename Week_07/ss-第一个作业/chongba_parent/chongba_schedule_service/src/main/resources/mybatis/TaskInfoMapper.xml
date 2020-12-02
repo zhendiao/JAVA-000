@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chongba.schedule.mapper.TaskInfoMapper">
+
+    <resultMap type="com.chongba.schedule.pojo.TaskInfoEntity" id="taskInfo">
+        <id property="taskId" column="task_id" />
+        <result property="priority" column="priority" />
+        <result property="taskType" column="taskType" />
+        <result property="parameters" column="parameters" />
+        <result property="executeTime" column="execute_time" />
+    </resultMap>
+
+    <select id="getTaskCount" resultType="int">
+        select count(*) from
+        taskinfo
+    </select>
+    <update id="updateTaskInfo">
+        update taskinfo set  priority=2
+    </update>
+</mapper>

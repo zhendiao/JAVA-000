@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chongba_common/chongba_common.iml" filepath="$PROJECT_DIR$/chongba_common/chongba_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chongba_parent.iml" filepath="$PROJECT_DIR$/chongba_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chongba_schedule_service/chongba_schedule_service.iml" filepath="$PROJECT_DIR$/chongba_schedule_service/chongba_schedule_service.iml" />
+    </modules>
+  </component>
+</project>
