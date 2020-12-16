@@ -21,7 +21,9 @@ import java.lang.reflect.Proxy;
 public final class Rpcfx {
 
     static {
-        ParserConfig.getGlobalInstance().addAccept("io.kimmking");
+        ParserConfig parserConfig =  ParserConfig.getGlobalInstance();
+        parserConfig.addAccept("io.kimmking");
+        parserConfig.setAutoTypeSupport(true);
     }
 
     public static <T> T create(final Class<T> serviceClass, final String url) {

@@ -19,37 +19,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 @SpringBootApplication
 public class RpcfxClientApplication {
 
-	// 二方库
-	// 三方库 lib
-	// nexus, userserivce -> userdao -> user
-	//
-	@Bean
-	public RpcfxInvoker createInvoker(@Autowired RpcfxResolver resolver){
-		return new RpcfxInvoker(resolver);
-	}
-	@Autowired
-	RpcfxInvoker invoker;
-
-
-	@PostMapping("/")
-	public RpcfxResponse invoke(@RequestBody RpcfxRequest request) {
-		return invoker.invoke(request);
-	}
-	@Bean
-	public RpcfxResolver createResolver(){
-		return new DemoResolver();
-	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		// UserService service = new xxx();
 		// service.findById
-		UserService userService = Rpcfx.create(UserService.class, "http://localhost:8090/");
-		User user = userService.findById(1);
-		System.out.println("find user id=1 from server: " + user.getName());
-
-		OrderService orderService = Rpcfx.create(OrderService.class, "http://localhost:8090/");
+//		UserService userService = Rpcfx.create(UserService.class, "http://localhost:8090/");
+		OrderService orderService = RpcInvoker.create(OrderService.class, "http://localhost:8080/");
 		Order order = orderService.findOrderById(1992129);
-		System.out.println(String.format("find order name=%s, amount=%f",order.getName(),order.getAmount()));
+		System.out.printf("find order name=%s, amount=%f%n", order.getName(), order.getAmount());
+
+//		OrderService orderService = Rpcfx.create(OrderService.class, "http://localhost:8090/");
+//		Order order = orderService.findOrderById(1992129);
+//		System.out.println(String.format("find order name=%s, amount=%f",order.getName(),order.getAmount()));
 
 		// 新加一个OrderService
 

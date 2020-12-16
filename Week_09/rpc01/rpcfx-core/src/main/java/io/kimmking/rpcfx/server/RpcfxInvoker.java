@@ -25,10 +25,8 @@ public class RpcfxInvoker<T>{
 
         try {
             Method method = resolveMethodFromClass(service.getClass(), request.getMethod());
-//            T result = (T) method.invoke(service, request.getParams()); // dubbo, fastjson,
+            T result = (T) method.invoke(service, request.getParams()); // dubbo, fastjson,
 
-            RpcInvoker rpcInvoker = InvokerFactory.getInvoker(service.getClass());
-            T result = (T) rpcInvoker.invoke(service, request.getMethod(), request.getParams());
             // 两次json序列化能否合并成一个
             response.setResult(JSON.toJSONString(result, SerializerFeature.WriteClassName));
             response.setStatus(true);
